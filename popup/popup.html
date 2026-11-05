@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InstaScrap</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="launcher">
+
+    <!-- Brand -->
+    <div class="brand">
+      <div class="brand-icon-wrap">
+        <img src="../icons/icon48.png" alt="" class="brand-icon">
+      </div>
+      <div class="brand-text">
+        <div class="brand-title">InstaScrap</div>
+        <div class="brand-sub">Instagram archive tool</div>
+      </div>
+    </div>
+
+    <!-- Session status -->
+    <div class="status-row" id="status-row" role="status" aria-live="polite">
+      <span class="dot" id="status-dot"></span>
+      <div class="status-col">
+        <span class="status-text" id="status-text">Checking session</span>
+        <span class="status-detail" id="status-detail"></span>
+      </div>
+    </div>
+
+    <button id="open-btn" class="open-btn" disabled>
+      Open panel
+    </button>
+
+    <!-- Hint -->
+    <p class="hint">
+      The panel runs inside Instagram's own page, so it keeps working after you
+      close this window. <b>Open a profile and scroll once</b> before your first scan.
+    </p>
+
+    <!-- Footer -->
+    <div class="launcher-footer">
+      <span class="version">v2.4.0</span>
+    </div>
+
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

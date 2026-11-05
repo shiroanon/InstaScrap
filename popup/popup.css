@@ -1,0 +1,180 @@
+/* ─── InstaScrap Launcher Popup ──────────────────────────────────────────────
+   Same "Contact Sheet" system as the in-page panel: warm graphite, one amber
+   safelight accent, condensed caps for labels, mono for anything countable.
+   ─────────────────────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+:root {
+  --ink:       #16130F;
+  --slate:     #1F1B16;
+  --card:      #26211A;
+  --rule:      #332C23;
+  --rule-hi:   #453C30;
+  --paper:     #EFE7D9;
+  --dim:       #8C8175;
+  --faint:     #5C5347;
+  --safelight: #E8873C;
+  --ok:        #7FA66B;
+  --warn:      #D9A441;
+  --err:       #C4614C;
+
+  --sans: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --cond: 'Barlow Condensed', 'Arial Narrow', 'Oswald', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 288px;
+  background: var(--slate);
+  color: var(--paper);
+  font-family: var(--sans);
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.launcher {
+  padding: 18px 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ── Brand ── */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+.brand-icon-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 9px;
+  background: var(--ink);
+  border: 1px solid var(--rule-hi);
+  padding: 5px;
+  flex-shrink: 0;
+}
+.brand-icon {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  object-fit: cover;
+  display: block;
+}
+.brand-title {
+  font-family: var(--cond);
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1;
+  color: var(--paper);
+}
+.brand-sub {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  color: var(--faint);
+  margin-top: 4px;
+  letter-spacing: 0.02em;
+}
+
+/* ── Status ── */
+.status-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 10px 11px;
+  background: var(--ink);
+  border: 1px solid var(--rule);
+  border-radius: 7px;
+}
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 4px;
+  background: var(--faint);
+}
+.dot.dot-ok   { background: var(--ok);   box-shadow: 0 0 6px rgba(127, 166, 107, 0.5); }
+.dot.dot-warn { background: var(--warn); box-shadow: 0 0 6px rgba(217, 164, 65, 0.5); }
+.dot.dot-err  { background: var(--err);  box-shadow: 0 0 6px rgba(196, 97, 76, 0.5); }
+
+.status-col { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+
+.status-text {
+  font-family: var(--cond);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--paper);
+  line-height: 1.1;
+}
+.status-detail {
+  font-size: 10.5px;
+  color: var(--faint);
+  line-height: 1.5;
+}
+
+/* ── Open button ── */
+.open-btn {
+  width: 100%;
+  padding: 11px 16px;
+  border: 1px solid var(--safelight);
+  border-radius: 7px;
+  background: var(--safelight);
+  color: #1A1209;
+  font-family: var(--cond);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, box-shadow 0.15s, transform 0.1s;
+}
+.open-btn:hover:not(:disabled) {
+  background: #F09A55;
+  border-color: #F09A55;
+  box-shadow: 0 4px 16px rgba(232, 135, 60, 0.26);
+}
+.open-btn:active:not(:disabled) { transform: translateY(1px); }
+.open-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: var(--card);
+  border-color: var(--rule-hi);
+  color: var(--dim);
+}
+
+/* ── Hint ── */
+.hint {
+  font-size: 10.5px;
+  color: var(--faint);
+  line-height: 1.55;
+  text-align: center;
+}
+.hint b { color: var(--dim); font-weight: 600; }
+
+/* ── Footer ── */
+.launcher-footer {
+  display: flex;
+  justify-content: center;
+  padding-top: 2px;
+  border-top: 1px solid var(--rule);
+}
+.version {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  color: var(--faint);
+  letter-spacing: 0.06em;
+}
+
+:focus-visible { outline: 2px solid var(--safelight); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+  .open-btn:active:not(:disabled) { transform: none; }
+}
