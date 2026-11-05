@@ -28,11 +28,31 @@ Instead of scraping with a headless browser, InstaScrap runs **inside** an exist
 
 ## Installation
 
-1. Open Chrome and go to `chrome://extensions`
-2. Enable **Developer Mode** (top-right toggle)
-3. Click **Load unpacked**
-4. Select this folder (`InstaScrap/`)
-5. The extension icon will appear in your toolbar
+### Option A — Download a release (recommended)
+
+1. Go to [Releases](https://github.com/shiroanon/InstaScrap/releases) and download the latest `InstaScrap-<version>.zip`
+2. Extract the ZIP (it creates an `InstaScrap-<version>/` folder)
+3. Open Chrome (or Edge / Brave / Chromium) and go to `chrome://extensions` (`edge://extensions` / `brave://extensions`)
+4. Enable **Developer Mode** (top-right toggle)
+5. Click **Load unpacked**
+6. Select the extracted `InstaScrap-<version>/` folder
+7. The extension icon will appear in your toolbar — pin it for easy access
+
+### Option B — From source
+
+```bash
+git clone https://github.com/shiroanon/InstaScrap.git
+```
+
+Then follow steps 3–6 above, selecting the cloned `InstaScrap/` folder.
+
+### Optional local bridge
+
+`bridge_server.py` (stdlib-only Python — no pip installs) forwards scraped data to external apps on `localhost:7432`:
+
+```bash
+python3 bridge_server.py   # or `python bridge_server.py` on Windows
+```
 
 ## Usage
 
