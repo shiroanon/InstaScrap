@@ -2,6 +2,8 @@
 
 A Chrome Extension (Manifest V3) that downloads Instagram reels, photos, and carousel albums from any public profile — using your own logged-in session, so zero bot detection.
 
+![InstaScrap panel — Following tab, batch-downloading 661 accounts](docs/screenshot-following.png)
+
 ## How it Works
 
 Instead of scraping with a headless browser, InstaScrap runs **inside** an existing Instagram tab using `chrome.scripting.executeScript` with `world: "MAIN"`. This means it calls Instagram's own internal APIs using your real browser cookies — exactly like the Instagram web app does.
